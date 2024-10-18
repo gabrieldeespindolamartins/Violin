@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violin</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh; /* Define a altura total da tela */
+            background-color: #3b3b3b;
+            color: #fff;
+        }
+        header {
+            background-color: #801d36;
+            color: white;
+            padding: 15px 20px; /* Ajuste a margem conforme necessário */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 96px;
+            position: fixed; /* Mantém o cabeçalho no topo ao rolar */
+            top: 0; /* Mantém o cabeçalho no topo */
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(230, 230, 230, 0.1);
+            z-index: 1; /* Garante que o cabeçalho fique acima da aba lateral */
+            }
+
+        .logo {
+            position: absolute;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .search-container {
+            display: flex;
+        }
+        .search-container input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .search-container button {
+            padding: 10px;
+            border: none;
+            background-color: #fff;
+            color: #801d36;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #f1f1f1;
+        }
+        .sidebar {
+            width: 65px; /* Nova largura da aba lateral */
+            background-color: #1b1b1b;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza os itens */
+            height: 100vh; /* Faz a aba lateral ocupar a altura total da tela */
+            position: sticky; /* Mantém a aba lateral fixa ao rolar a página */
+            top: 0; /* Mantém a aba lateral no topo */
+        }
+        .profile-icon {
+            font-size: 50px; /* Tamanho do ícone */
+            margin-bottom: 20px; /* Espaço abaixo do ícone */
+        }
+        .content {
+            flex: 1; /* Permite que o conteúdo ocupe o restante da tela */
+            overflow-y: auto; /* Permite rolagem se o conteúdo for longo */
+            margin-top: 100px;
+            
+        }
+
+        footer {
+            background-color: #801d36;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(230, 230, 230, 0.1);
+            z-index: 1; /* Garante que o cabeçalho fique acima da aba lateral */
+        }
+        .play-container {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .play-button {
+            padding: 10px 20px;
+            background-color: #801d36;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        .progress-bar {
+            flex: 1;
+            height: 5px;
+            background-color: #555;
+            border-radius: 5px;
+            position: relative;
+            margin-right: 10px;
+        }
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #801d36;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -2.5px; /* Para centralizar verticalmente na barra */
+        }
+        .squares-container {
+            display: flex;
+            justify-content: space-around; /* Espaça os quadrados uniformemente */
+            margin: 20px 0; /* Espaçamento acima e abaixo */
+        }
+        .square {
+        width: 50px; /* Nova largura do quadrado */
+        height: 50px; /* Nova altura do quadrado */
+        background-color: #801d36; /* Cor do quadrado */
+        margin: 0 5px; /* Espaçamento horizontal entre os quadrados */
+        }
+        .squares-container {
+        display: flex;
+        justify-content: space-around; /* Espaça os quadrados uniformemente */
+        margin: 20px 0; /* Espaçamento acima e abaixo */
+        }
+        .square {   
+            width: 150px; /* Nova largura do quadrado */
+            height: 150px; /* Nova altura do quadrado */
+            background-color: #801d36; /* Cor do quadrado */
+            margin: 0 5px; /* Espaçamento horizontal entre os quadrados */
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="profile-icon">👤</div> <!-- Ícone de perfil -->
+    <!-- Outros itens da aba lateral podem ser adicionados aqui -->
+    <div>
+        <input type="text" id="Titulo" placeholder="Titulo">
+        <input type="text" id="Artista" placeholder="Artista">
+        <input type="text" id="Gênero" placeholder="Gênero">
+        <input type="text" id="Duração" placeholder="Duração">
+        <input type="text" id="Link da música" placeholder="Link da música">
+    </div>
+</div>
+<header>
+    <div class="logo">Violin</div>
+    <div class="search-container">
+        <input type="text" placeholder="Buscar...">
+        <button type="submit">🔍</button>
+    </div>
+</header>
+<div class="content">
+    
+   
+    <!-- Fila de quadrados -->
+    <div class="squares-container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+    <hr>
+    <div class="squares-container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+<hr>
+    <h1>Player de Música</h1>
+
+    <div class="play-container">
+        <button class="play-button">► Play</button>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-dot" style="left: 50%;"></div> <!-- Simulação de progresso -->
+            </div>
+            <span>2:30</span> <!-- Duração da música -->
+        </div>
+    </div>
+
+    <button onclick="logOut()">Sair</button>
+
+    <footer>© 2024 Violin. Todos os direitos reservados.</footer>
+</div>
+<script>
+    //funcao que verifica se o usuario esta logado no sistema, se nao tiver, ele direciona para pagina de login
+
+    function verificaUsuario(){
+        let usuarioLogado = sessionStorage.getItem('usuarioLogado')
+        if (usuarioLogado){
+            alert("Favor efetuar o login")
+            window.location.href = 'index.html'
+        }
+        window.onload = function(){
+            verificaUsuario()
+        }
+    }
+
+    function logOut() {
+        sessionStorage.removeItem('usuarioLogado')
+        console.log('usuario deslogado')
+        window.location.href
+    }
+</script>
+</body>
+</html>

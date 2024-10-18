@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(V.png);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #a3286c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+        }
+        .login-container a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #a3286c;
+            text-decoration: none;
+        }
+        .mensagem {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="return login();">
+            <input type="text" id="login-email" name="username" placeholder="Usuário" required>
+            <input type="password" id="login-password" name="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="mensagem" id="mensagem"></div>
+        <a href="cadastro.html">Não tem uma conta? Cadastre-se</a>
+    </div>
+
+    <script>
+        function login() {
+            let email = document.getElementById('login-email').value;
+            let password = document.getElementById('login-password').value;
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            let usuario = usuarios.find(usuario => usuario.email === email && atob(usuario.senha) === password);
+
+            if (usuario) {
+                // armazenar que está logado no session storage
+                sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+                // redirecionar para a home
+                window.location.href = 'home.html';
+            } else {
+                document.getElementById('mensagem').innerText = 'Email ou senha incorretos';
+                return false; // evita o envio do formulário
+            }
+            return false; // impede o envio do formulário
+        }
+    </script>
+</body>
+</html>

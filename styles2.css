@@ -1,0 +1,66 @@
+body {
+    color: white;
+    background-color: black
+    
+}
+
+.Dourado {
+    color: white;
+    font-family: 'ITC Benguiat';
+    font-size: 130px;
+    position: absolute;
+    bottom: 230px;
+    right: 670px;
+}
+
+.PeixeBoi {
+    background: linear-gradient(135deg,#871b1b, #bf306f); /* Degradê vermelho */
+    color: rgb(255, 255, 255); /* Cor do texto */
+    padding: 15px 30px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 16px; /* Tamanho da fonte */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transições suaves */
+    position: absolute;
+    bottom: 230px;
+    right: 670px;
+    font-family: 'ITC Benguiat';
+    font-weight: bold;
+}
+
+.Carpado {
+    background: linear-gradient(135deg,#871b1b, #bf306f); /* Degradê vermelho */
+    color: rgb(255, 255, 255); /* Cor do texto */
+    padding: 15px 30px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 16px; /* Tamanho da fonte */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transições suaves */
+    position: absolute;
+    bottom: 230px;
+    right: 840px;
+    font-family: 'ITC Benguiat';
+    font-weight: bold;
+    
+}
+
+.listrado {
+    width: 20px;
+    height: 670px; 
+    background: linear-gradient(to bottom, #871b1b, #bf306f); 
+    border: 2px solid rgb(0, 0, 0); 
+    position: absolute;
+    right: 1200px;
+    bottom: 1px;
+}
+
+.imagem {
+    width: 750px;
+    position: absolute;
+    right: 200px;
+    bottom: 200px;
+}
